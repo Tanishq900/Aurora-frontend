@@ -14,7 +14,7 @@ export class MotionSensor {
   private isActive = false;
   private lastAcceleration: { x: number; y: number; z: number } | null = null;
   private accelerationBuffer: number[] = [];
-  private permissionGranted = false;
+ // private permissionGranted = false;
 
   async initialize(): Promise<void> {
     if (typeof DeviceMotionEvent === 'undefined') {
