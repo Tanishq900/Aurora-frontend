@@ -29,7 +29,7 @@ export class MotionSensor {
       }
     }
 
-    this.permissionGranted = true;
+    
     this.isActive = true;
   }
 
