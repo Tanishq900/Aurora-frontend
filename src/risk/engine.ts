@@ -96,10 +96,10 @@ export function calculateLocationRisk(location?: any): number {
     locationScore = 10; // Neutral/no zone = 10
   }
   
-  const presentationMode = (location?.presentationMode as boolean | undefined) === true;
-  if (presentationMode) {
-    return 20;
-  }
+ if ((location?.presentationMode as boolean | undefined) === true) {
+  return 20;
+}
+
 
   return locationScore;
 }
@@ -166,11 +166,12 @@ export function calculateTotalRisk(
 /**
  * Check if auto-SOS should be triggered
  */
-export function shouldTriggerAutoSOS(totalRisk: number, presentationMode?: boolean): boolean {
+export function shouldTriggerAutoSOS(totalRisk: number): boolean {
   const threshold = 50;
   if (totalRisk <= threshold) {
     return false;
   }
+
 
   const now = Date.now();
   if (now - lastAutoSOSTimestamp < 10000) {
