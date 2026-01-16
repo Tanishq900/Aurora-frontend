@@ -742,14 +742,8 @@ export default function StudentDashboard() {
 
     if (timeSinceLastTrigger < cooldownMs) return;
 
-    if (riskSnapshot.level === 'high') {
-      const shouldTrigger = shouldTriggerAutoSOS(riskSnapshot.total, presentationMode);
+    shouldTriggerAutoSOS(totalRisk);
 
-      if (shouldTrigger) {
-        setAutoSOSTriggered(true);
-        setLastAutoSOSTime(now);
-      }
-    }
   }, [riskSnapshot, presentationMode, autoSOSTriggered, lastAutoSOSTime]);
 
   const loadSOSHistory = async () => {
